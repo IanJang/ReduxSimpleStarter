@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import SearchBar from "./components/search_bar";
-
+import YTSearch from 'youtube-api-search';
 const API_KEY = '';
 
-// Create a new component. This component should produce some HTML
+YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
+    console.log(data);
+})
+
 const App = () => {
     return(
         <div>
@@ -13,5 +16,4 @@ const App = () => {
     );
 }
 
-// Take this component's generated HTML and put it on the page (in the DOM)
 ReactDOM.render(<App/>, document.querySelector('.container'));
